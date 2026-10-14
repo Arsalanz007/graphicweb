@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NocturneArt // Quantum Production Lab — Animation, VFX &amp; Digital Art</title>
+  <meta name="description" content="Next-generation post-production atelier engineering 3D animation, photoreal visual effects and digital character lore. Written timelines, quote-based.">
+  <meta name="theme-color" content="#050608">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Futuristic Stylesheet -->
+  <link rel="stylesheet" href="assets/css/futuristic.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23050608' stroke='%2300f0ff' stroke-width='4'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='bold' fill='%2300f0ff' text-anchor='middle'>N</text></svg>">
+</head>
+<body>
+
+  <!-- Cyber Grid Background & WebGL 3D Canvas -->
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- High-Tech Telemetry Bar -->
+  <aside class="telemetry-bar" aria-label="System Telemetry">
+    <div class="telemetry-left">
+      <div class="telem-item">SYS: <span>ONLINE</span></div>
+      <div class="telem-item">VAULT: <span>12 MASTER ARTWORKS</span></div>
+      <div class="telem-item">CLUSTER: <span>128 RTX 6000 NODES</span></div>
+      <div class="telem-item">RATE: <span id="telem-fps">60 FPS</span></div>
+    </div>
+    <div class="telemetry-right">
+      <button class="telem-btn" id="telem-audio-toggle" type="button" aria-label="Toggle UI Audio">SOUND: MUTED</button>
+      <button class="telem-btn" id="telem-scan-toggle" type="button" aria-label="Toggle Scanlines">SCANLINES</button>
+      <button class="telem-btn" id="telem-matrix-toggle" type="button" aria-label="Toggle Matrix Mode">MATRIX</button>
+    </div>
+  </aside>
+
+  <!-- Cyber Navigation Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="NocturneArt Quantum Home">
+        <div class="brand__mark">N</div>
+        <div class="brand__title-group">
+          <span class="brand__name">NocturneArt</span>
+          <span class="brand__sub">Quantum Production Lab</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav__link is-active" href="#overview">Overview</a>
+        <a class="nav__link" href="#deck">Showcase</a>
+        <a class="nav__link" href="#services">Services</a>
+        <a class="nav__link" href="#artworks">Artworks</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
+        <a class="nav__link" href="studio.html">Studio</a>
+        <a class="nav__link" href="#quote-calc">Simulator</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--cyan btn--sm" href="#quote-calc">Launch Brief</a>
+        <button class="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="overview">
+
+    <!-- Hero Section with Cyber-Deck Showcase -->
+    <section class="hero" id="deck">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <div class="cyber-kicker">Quantum Production Atelier // 2026 Pipeline</div>
+          <h1 class="hero__title">
+            Next-gen<br>
+            <span class="row-gradient">animation, VFX</span><br>
+            &amp; concept art
+          </h1>
+          <p class="hero__lede">
+            NocturneArt is an elite digital production lab crafting high-octane visual effects, photoreal 3D animation, and bespoke character lore for directors, creators, and entertainment studios worldwide.
+          </p>
+
+          <div class="hero__cta-group">
+            <a class="btn btn--cyan btn--lg" href="#quote-calc">Launch Holocore Quote</a>
+            <a class="btn btn--outline-cyan btn--lg" href="#artworks">Explore 4K Artworks</a>
+          </div>
+
+          <div class="hero__stats-row">
+            <div class="stat-item">
+              <div class="stat-num">100<span>%</span></div>
+              <div class="stat-label">Written Date Guarantee</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">8K<span>+</span></div>
+              <div class="stat-label">ACEScg HDR Pipeline</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">&lt;12<span>h</span></div>
+              <div class="stat-label">Fixed Quote Turnaround</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Futuristic Holographic Cyber-Deck Console -->
+        <div class="cyber-deck" aria-label="NocturneArt Interactive Cyber-Deck">
+          <div class="deck-header">
+            <div class="deck-title">
+              <i></i>
+              <span id="deck-title-text">CH-01: SORCERESS OF THE STORM // LIGHTNING TRIDENT</span>
+            </div>
+            <div class="deck-controls">
+              <button class="deck-channel-btn is-active" data-channel="1" type="button">CH-01</button>
+              <button class="deck-channel-btn" data-channel="2" type="button">CH-02</button>
+              <button class="deck-channel-btn" data-channel="3" type="button">CH-03</button>
+              <button class="deck-channel-btn" data-channel="4" type="button">CH-04</button>
+              <button class="deck-channel-btn" data-channel="5" type="button">CH-05</button>
+              <button class="deck-channel-btn" data-channel="6" type="button">CH-06</button>
+            </div>
+          </div>
+
+          <div class="deck-screen" id="deck-main-screen">
+            <img id="deck-display-img" src="assets/img/front1.jpeg" alt="Sorceress of the Storm" loading="eager">
+
+            <div class="deck-hud-overlay" aria-hidden="true">
+              <div class="deck-hud-top">
+                <span>ACTIVE ● 00:24:18:02</span>
+                <span id="deck-res-badge">MASTER LOOKDEV // 4K</span>
+              </div>
+              <div class="deck-hud-bottom">
+                <div class="wave-bars">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+                <span class="mono" style="font-size:0.65rem; color:var(--cyan)">TRANSMISSION: STABLE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="deck-footer">
+            <span>NODE ID: NOCTURNE-DECK-ALPHA</span>
+            <span>DIRECT LINK: 10GbE FIBER UPLINK</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Software on the Floor Marquee -->
+    <section class="marquee-wrapper" aria-label="Software Stack Matrix">
+      <div class="marquee-track">
+        <div class="soft-chip"><img src="assets/img/soft/unreal.svg" alt="" width="28" height="28"><span>Unreal Engine 5.5</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/resolve.svg" alt="" width="28" height="28"><span>DaVinci Resolve Studio</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/aftereffects.svg" alt="" width="28" height="28"><span>After Effects</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/blender.svg" alt="" width="28" height="28"><span>Blender 4.2 LTS</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/nuke.svg" alt="" width="28" height="28"><span>Foundry Nuke</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/houdini.svg" alt="" width="28" height="28"><span>SideFX Houdini</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/maya.svg" alt="" width="28" height="28"><span>Autodesk Maya</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/cinema4d.svg" alt="" width="28" height="28"><span>Cinema 4D</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/photoshop.svg" alt="" width="28" height="28"><span>Photoshop</span></div>
+
+        <!-- Repeated for seamless infinite scroll -->
+        <div class="soft-chip"><img src="assets/img/soft/unreal.svg" alt="" width="28" height="28"><span>Unreal Engine 5.5</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/resolve.svg" alt="" width="28" height="28"><span>DaVinci Resolve Studio</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/aftereffects.svg" alt="" width="28" height="28"><span>After Effects</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/blender.svg" alt="" width="28" height="28"><span>Blender 4.2 LTS</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/nuke.svg" alt="" width="28" height="28"><span>Foundry Nuke</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/houdini.svg" alt="" width="28" height="28"><span>SideFX Houdini</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/maya.svg" alt="" width="28" height="28"><span>Autodesk Maya</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/cinema4d.svg" alt="" width="28" height="28"><span>Cinema 4D</span></div>
+        <div class="soft-chip"><img src="assets/img/soft/photoshop.svg" alt="" width="28" height="28"><span>Photoshop</span></div>
+      </div>
+    </section>
+
+    <!-- Core Services Matrix (3 Desks) -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Core Production Disciplines</div>
+          <h2 class="section-title">Three Precision Desks. One Integrated Studio.</h2>
+          <p class="section-subtitle">
+            Every deliverable is crafted in-house by senior artists and technical directors. No bloated layers, no cart checkouts — strictly quoted on scope and delivered on a date we put in writing.
+          </p>
+        </div>
+
+        <div class="services-matrix">
+          <!-- Desk 01 -->
+          <article class="svc-card">
+            <span class="svc-num">DESK 01 // MOTION</span>
+            <h3>3D Animation &amp; Unreal CGI</h3>
+            <p>
+              Hand-crafted 2D frame animation, photoreal 3D product motion, sci-fi idents, and character sequences. From initial animatic lock to raytraced final render.
+            </p>
+            <ul class="svc-features">
+              <li>Photoreal 3D product motion</li>
+              <li>Character rigging &amp; animation</li>
+              <li>Unreal Engine 5.5 Lumen rendering</li>
+              <li>Sci-Fi title sequences &amp; idents</li>
+              <li>2D stylized frame-by-frame</li>
+              <li>Broadcast kinetic typography</li>
+            </ul>
+            <a class="btn btn--outline-cyan btn--sm" href="animation.html">Explore Animation Desk</a>
+          </article>
+
+          <!-- Desk 02 -->
+          <article class="svc-card">
+            <span class="svc-num">DESK 02 // ILLUSION</span>
+            <h3>Visual Effects &amp; Compositing</h3>
+            <p>
+              Seamless CG element integration, plate cleanup, wire removal, 3D camera tracking, matte painting, and quantum energy effects for films, games, and trailers.
+            </p>
+            <ul class="svc-features">
+              <li>Deep multi-pass compositing</li>
+              <li>Sub-pixel 3D camera tracking</li>
+              <li>Screen replacement &amp; rig cleanup</li>
+              <li>CG character &amp; asset integration</li>
+              <li>Pyrotechnics, sparks &amp; portals</li>
+              <li>Digital skin &amp; beauty pass</li>
+            </ul>
+            <a class="btn btn--outline-cyan btn--sm" href="vfx.html">Explore VFX Desk</a>
+          </article>
+
+          <!-- Desk 03 -->
+          <article class="svc-card">
+            <span class="svc-num">DESK 03 // STILL IMAGE</span>
+            <h3>Digital Art &amp; Concept Lore</h3>
+            <p>
+              Turnaround character reference sheets, high-fidelity concept illustrations, avatars, sticker sets, and key art designed with builder-ready precision.
+            </p>
+            <ul class="svc-features">
+              <li>Multi-angle reference sheets</li>
+              <li>Key art &amp; costume design</li>
+              <li>Luminescent avatar insignias</li>
+              <li>High-res expression stickers</li>
+              <li>Palette &amp; texture breakdown</li>
+              <li>Full commercial IP rights</li>
+            </ul>
+            <a class="btn btn--outline-cyan btn--sm" href="digital-art.html">Explore Digital Art Desk</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expanded 4K Artworks & Production Showcase -->
+    <section class="section" id="artworks">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Production Archive // 4K Gallery</div>
+          <h2 class="section-title">Featured Works &amp; Concept Artworks</h2>
+          <p class="section-subtitle">
+            Filter through our latest creations across all desks. Click any artwork to open the deep holographic inspector with resolution specs, color gamut, and production notes.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="gallery-filters" role="tablist">
+          <button class="filter-btn active" data-filter="all" type="button">All Featured Works (6)</button>
+          <button class="filter-btn" data-filter="fantasy" type="button">Fantasy &amp; Mystic</button>
+          <button class="filter-btn" data-filter="heroic" type="button">Heroic &amp; Action</button>
+          <button class="filter-btn" data-filter="character" type="button">Character Lore</button>
+        </div>
+
+        <!-- Grid of Artworks -->
+        <div class="gallery-grid">
+
+          <!-- 01: Sorceress of the Storm (front1.jpeg) -->
+          <article class="artwork-card" data-cat="fantasy"
+            data-title="Sorceress of the Storm"
+            data-meta="Mystic Lore // Electrified Trident &amp; Tempest Sky"
+            data-img="assets/img/front1.jpeg"
+            data-res="1168 x 1317 (Master LookDev)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Clip Studio Paint"
+            data-color="ACEScg Wide Gamut"
+            data-desc="High-impact fantasy illustration featuring an arcane sorceress in an embroidered crimson gown wielding a crystalline lightning trident along storm-swept coastal cliffs amidst a surging electrical tempest.">
+            <div class="artwork-media">
+              <img src="assets/img/front1.jpeg" alt="Sorceress of the Storm" loading="lazy">
+              <span class="artwork-card-tag">Fantasy Lore</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Mystic Lore // Tempest Master</div>
+              <h3 class="artwork-title">Sorceress of the Storm</h3>
+              <div class="artwork-footer">
+                <span>Inspect Tech Specs</span>
+                <span class="mono">ACEScg 4K</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02: Cosmic Man of Tomorrow (front2.jpeg) -->
+          <article class="artwork-card" data-cat="heroic"
+            data-title="Cosmic Man of Tomorrow"
+            data-meta="Heroic Key Art // Supernova Flight"
+            data-img="assets/img/front2.jpeg"
+            data-res="1169 x 1268 (Print Master)"
+            data-fps="Still Graphic"
+            data-soft="Clip Studio / Photoshop"
+            data-color="Display P3 Vibrant"
+            data-desc="Dynamic comic-style key illustration depicting the Man of Steel soaring triumphantly through swirling interstellar cosmic gas, stardust trails, and deep-space nebulae with rich chromatic energy.">
+            <div class="artwork-media">
+              <img src="assets/img/front2.jpeg" alt="Cosmic Man of Tomorrow" loading="lazy">
+              <span class="artwork-card-tag">Heroic Key Art</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Superhero // Cosmic Key Art</div>
+              <h3 class="artwork-title">Cosmic Man of Tomorrow</h3>
+              <div class="artwork-footer">
+                <span>Inspect Tech Specs</span>
+                <span class="mono">Print Master</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03: Syndicate Enforcer (front3.jpeg) -->
+          <article class="artwork-card" data-cat="character"
+            data-title="Syndicate Enforcer"
+            data-meta="Character Design // Neo-City Underworld"
+            data-img="assets/img/front3.jpeg"
+            data-res="1169 x 1273 (Character Sheet)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Procreate"
+            data-color="sRGB Display"
+            data-desc="Stylized anime character design of a syndicate crime boss and street enforcer in a tailored charcoal blazer with spiked collar, barbed-wire wrist wraps, and hardened gaze.">
+            <div class="artwork-media">
+              <img src="assets/img/front3.jpeg" alt="Syndicate Enforcer" loading="lazy">
+              <span class="artwork-card-tag">Character Lore</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Character Design // Underworld</div>
+              <h3 class="artwork-title">Syndicate Enforcer</h3>
+              <div class="artwork-footer">
+                <span>Inspect Tech Specs</span>
+                <span class="mono">Vector/Raster</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04: Seraph of the Astral Ring (front4.jpeg) -->
+          <article class="artwork-card" data-cat="fantasy"
+            data-title="Seraph of the Astral Ring"
+            data-meta="Celestial Lore // All-Seeing Water Sanctum"
+            data-img="assets/img/front4.jpeg"
+            data-res="1169 x 1253 (Celestial Concept)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Corel Painter"
+            data-color="300 DPI Print"
+            data-desc="Ethereal celestial sentinel with feathered wings and an ornate multi-eyed golden halo mask, levitating above geometric water terraces beneath the cosmic All-Seeing Eye.">
+            <div class="artwork-media">
+              <img src="assets/img/front4.jpeg" alt="Seraph of the Astral Ring" loading="lazy">
+              <span class="artwork-card-tag">Celestial Concept</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Mythic Concept // Sanctum</div>
+              <h3 class="artwork-title">Seraph of the Astral Ring</h3>
+              <div class="artwork-footer">
+                <span>Inspect Tech Specs</span>
+                <span class="mono">300 DPI</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05: Inferno Katana Duelist (front5.jpeg) -->
+          <article class="artwork-card" data-cat="heroic"
+            data-title="Inferno Katana Duelist"
+            data-meta="Action Concept // Blazing Temple Showdown"
+            data-img="assets/img/front5.jpeg"
+            data-res="1168 x 1276 (Battle LookDev)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Clip Studio"
+            data-color="ACEScg Linear"
+            data-desc="Intense battle scene featuring a braided swordsman drawing a glowing energy katana amidst the raging inferno and burning timbers of an ancient temple sanctuary.">
+            <div class="artwork-media">
+              <img src="assets/img/front5.jpeg" alt="Inferno Katana Duelist" loading="lazy">
+              <span class="artwork-card-tag">Action Stance</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Action Concept // Firestorm</div>
+              <h3 class="artwork-title">Inferno Katana Duelist</h3>
+              <div class="artwork-footer">
+                <span>Inspect Tech Specs</span>
+                <span class="mono">Battle Stance</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06: Dragon-Winged Hybrid (front6.jpeg) -->
+          <article class="artwork-card" data-cat="character"
+            data-title="Dragon-Winged Hybrid"
+            data-meta="Fantasy Lore // Highland Keep Berserker"
+            data-img="assets/img/front6.jpeg"
+            data-res="739 x 1600 (Full-Body Spec)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Concept Master"
+            data-color="sRGB Certified"
+            data-desc="Legendary warrior fusion bearing a colossal dragon-cleaver broadsword, demonic draconic wing, shoulder armor, and tattered cloak overlooking an alpine cliffside castle.">
+            <div class="artwork-media">
+              <img src="assets/img/front6.jpeg" alt="Dragon-Winged Hybrid" loading="lazy">
+              <span class="artwork-card-tag">Fantasy Warrior</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Fantasy Lore // Berserker</div>
+              <h3 class="artwork-title">Dragon-Winged Hybrid</h3>
+              <div class="artwork-footer">
+                <span>Inspect Tech Specs</span>
+                <span class="mono">Full Body</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a class="btn btn--cyan" href="portfolio.html" style="padding: 0.9rem 2.2rem; font-size: 0.95rem;">
+            Explore Complete Master Vault (12 Artworks &amp; Pipeline Specs) &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive HOLOCORE Quote & Timeline Simulator -->
+    <section class="section section--darker" id="quote-calc">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Real-Time Estimator &amp; Transmission</div>
+          <h2 class="section-title">HOLOCORE Project Quote Simulator</h2>
+          <p class="section-subtitle">
+            Configure your deliverables, turnaround warp speed, and custom add-ons. Get immediate transparent budget estimates and an instant project transmission brief.
+          </p>
+        </div>
+
+        <div class="calculator-panel" id="holocore-calculator">
+          <!-- Configuration Options -->
+          <div class="calc-options">
+            <!-- Service Selector -->
+            <div>
+              <span class="calc-group-label">01 // Select Production Desk</span>
+              <div class="calc-chips">
+                <button class="calc-chip active" data-service="vfx" type="button">VFX &amp; Compositing</button>
+                <button class="calc-chip" data-service="anim" type="button">3D Animation</button>
+                <button class="calc-chip" data-service="art" type="button">Digital Art &amp; Ref</button>
+                <button class="calc-chip" data-service="suite" type="button">Full Studio Suite</button>
+              </div>
+            </div>
+
+            <!-- Scope Slider -->
+            <div class="calc-slider-wrap">
+              <div class="calc-slider-header">
+                <span>02 // Scope &amp; Runtime Scale</span>
+                <b id="calc-scope-val">30s runtime / shots</b>
+              </div>
+              <input class="calc-range" id="calc-scope-slider" type="range" min="10" max="180" value="30" step="5">
+            </div>
+
+            <!-- Turnaround Warp Speed -->
+            <div>
+              <span class="calc-group-label">03 // Delivery Speed Tier</span>
+              <div class="calc-chips">
+                <button class="calc-chip active" data-speed="standard" type="button">Standard (12 Days)</button>
+                <button class="calc-chip" data-speed="priority" type="button">Warp Priority (5 Days)</button>
+                <button class="calc-chip" data-speed="hyperdrive" type="button">Hyperdrive (48 Hours)</button>
+              </div>
+            </div>
+
+            <!-- Add-ons -->
+            <div>
+              <span class="calc-group-label">04 // High-End Deliverables &amp; Add-Ons</span>
+              <div class="calc-addons">
+                <label class="calc-checkbox-label">
+                  <input type="checkbox" data-addon="8k">
+                  <span>8K DCI ProRes Master</span>
+                </label>
+                <label class="calc-checkbox-label">
+                  <input type="checkbox" data-addon="sound">
+                  <span>Dolby Atmos Sound Mix</span>
+                </label>
+                <label class="calc-checkbox-label">
+                  <input type="checkbox" data-addon="sources">
+                  <span>Full Project Source Files</span>
+                </label>
+                <label class="calc-checkbox-label">
+                  <input type="checkbox" data-addon="rights">
+                  <span>Full Commercial IP Buyout</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Quote Output -->
+          <div class="calc-summary">
+            <div>
+              <div class="summary-headline">ESTIMATED PRODUCTION BUDGET</div>
+              <div class="price-display">
+                <div class="price-sub">Fixed Quote Estimate (USD)</div>
+                <div class="price-val" id="calc-price-display">$2,100 <span>– $2,500</span></div>
+              </div>
+
+              <div class="timeline-val" id="calc-timeline-display">
+                Guaranteed Delivery: <b>Standard Orbital (12 Days)</b>
+              </div>
+
+              <p class="mono" style="font-size:0.75rem; color:var(--text-muted); margin-bottom:1.5rem">
+                ✓ No payment collected on-site.<br>
+                ✓ Quoted individually with written milestone contract.<br>
+                ✓ Delivered on the exact date agreed, or 20% studio credit.
+              </p>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.75rem">
+              <button class="btn btn--cyan" id="calc-copy-brief-btn" type="button">
+                <span>Copy Transmission Brief</span>
+              </button>
+              <a class="btn btn--magenta" id="calc-email-brief-btn" href="mailto:nexorasyndicateltd@gmail.com?subject=NocturneArt%20Project%20Transmission%20Brief">
+                <span>Send Brief to nexorasyndicateltd@gmail.com</span>
+              </a>
+              <a class="btn btn--outline-cyan" href="quote.html">
+                <span>Submit Full Project Form</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works (The Quantum Protocol) -->
+    <section class="section" id="how-it-works">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Streamlined Production Protocol</div>
+          <h2 class="section-title">How Production Operates</h2>
+          <p class="section-subtitle">
+            Zero ambiguity. Direct access to your lead artist from brief to final delivery master.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-badge">STAGE 01</span>
+            <h3>Send the Brief</h3>
+            <p>Upload references, scripts, raw assets, or moodboards. We analyze the scope and reply within 12 hours with a fixed quote and guaranteed delivery calendar.</p>
+          </article>
+
+          <article class="step-card">
+            <span class="step-badge">STAGE 02</span>
+            <h3>Rough Cut &amp; Pre-Vis</h3>
+            <p>Our floor starts cutting, animating, or compositing immediately. You review a private first pass while creative redirection is rapid and cost-free.</p>
+          </article>
+
+          <article class="step-card">
+            <span class="step-badge">STAGE 03</span>
+            <h3>Iterative Polish</h3>
+            <p>Precision timecoded notes land in one unified thread. We revise lighting, kinetic typography, pacing, and color until every frame locks.</p>
+          </article>
+
+          <article class="step-card">
+            <span class="step-badge">STAGE 04</span>
+            <h3>Master Vault Delivery</h3>
+            <p>Download your uncompressed ProRes 4444, 4K/8K crops, transparent PNGs, and written commercial usage copyright release documentation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Reviews & Worldwide Telemetry -->
+    <section class="section section--darker" id="reviews">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Verified Client Feedback</div>
+          <h2 class="section-title">What Directors &amp; Creators Say</h2>
+          <p class="section-subtitle">
+            Trusted by production houses, advertising agencies, indie directors, and creators across 14 countries.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">“The 3D mech animation and lighting pass delivered for our game trailer completely blew our publisher away. Fluid keyframing and stunning Unreal Engine fidelity.”</p>
+            <div class="review-author">
+              <b>David Sterling</b>
+              <span>Cinematics Lead · Vancouver, Canada</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">“Lightning fast turnaround and incredible VFX fidelity. NocturneArt integrated our CG assets into complex handheld plates seamlessly. Best studio partner we have booked.”</p>
+            <div class="review-author">
+              <b>Jonas Hendrick</b>
+              <span>VFX Director · Berlin, Germany</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">“The character reference sheet was so precise and immaculate that our physical suit builder said it was the cleanest blueprint she had ever received in a decade.”</p>
+            <div class="review-author">
+              <b>Marissa Drake</b>
+              <span>Concept Director · Tokyo, Japan</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Holographic Lightbox & Tech Inspector Modal -->
+  <div class="hologram-modal" id="hologram-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Inspector">✕</button>
+
+      <div class="modal-preview-pane">
+        <img id="modal-preview-img" src="" alt="Artwork Preview">
+      </div>
+
+      <div class="modal-info-pane">
+        <div>
+          <span class="cyber-kicker" id="modal-meta">Concept Art // LookDev</span>
+          <h3 id="modal-title">Artwork Title</h3>
+          <p id="modal-desc" style="color:var(--text-muted); font-size:0.92rem; margin-top:0.75rem; line-height:1.6;"></p>
+        </div>
+
+        <div>
+          <span class="calc-group-label">TECHNICAL SPECIFICATIONS</span>
+          <table class="spec-table">
+            <tbody>
+              <tr><td>Resolution Master</td><td id="spec-res">4K DCI (4096x2160)</td></tr>
+              <tr><td>Frame Timing</td><td id="spec-fps">24.000 fps</td></tr>
+              <tr><td>Software Pipeline</td><td id="spec-soft">Nuke / Blender / Resolve</td></tr>
+              <tr><td>Color Gamut / Profile</td><td id="spec-color">ACEScg Rec.709</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <span class="calc-group-label">STUDIO ACTIONS</span>
+          <div style="display:flex; gap:0.75rem; margin-top:0.5rem">
+            <a class="btn btn--cyan btn--sm" href="#quote-calc" onclick="document.getElementById('hologram-modal').classList.remove('is-open');">
+              Book Similar Production
+            </a>
+            <a class="btn btn--outline-cyan btn--sm" href="mailto:nexorasyndicateltd@gmail.com">
+              Direct Inquire
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Footer -->
+  <footer class="footer" id="studio">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <a class="brand" href="index.html" style="margin-bottom:1.25rem">
+            <div class="brand__mark">N</div>
+            <div class="brand__title-group">
+              <span class="brand__name">NocturneArt</span>
+              <span class="brand__sub">Quantum Production Lab</span>
+            </div>
+          </a>
+          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; max-width:320px; margin-bottom:1.5rem">
+            High-fidelity post-production atelier engineering 3D animation, visual effects, and digital concept art. Quoted individually, delivered on a written date.
+          </p>
+          <div class="mono" style="font-size:0.75rem; color:var(--cyan)">
+            UPLINK: nexorasyndicateltd@gmail.com
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4>Production Desks</h4>
+          <ul class="footer-links">
+            <li><a href="animation.html">3D &amp; 2D Animation</a></li>
+            <li><a href="vfx.html">Visual Effects (VFX)</a></li>
+            <li><a href="digital-art.html">Digital Character Art</a></li>
+            <li><a href="#artworks">Featured Artworks</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Studio &amp; Vault</h4>
+          <ul class="footer-links">
+            <li><a href="portfolio.html">4K Artwork Archive</a></li>
+            <li><a href="studio.html">Floor &amp; Hardware Specs</a></li>
+            <li><a href="quote.html">Custom Quote Engine</a></li>
+            <li><a href="faq.html">FAQ Knowledge Base</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Transmission Uplink</h4>
+          <p style="color:var(--text-muted); font-size:0.86rem; margin-bottom:1rem">
+            Bookings active worldwide. Written response and quote provided within 12 hours.
+          </p>
+          <a class="btn btn--cyan btn--sm" href="#quote-calc">Initialize Project</a>
+        </div>
+      </div>
+
+      <div class="footer__wordmark">NOCTURNEART</div>
+
+      <div class="footer__bottom">
+        <div>© 2026 NocturneArt. Quantum Production Lab. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem">
+          <a href="faq.html" style="color:var(--text-dim); text-decoration:none">FAQ</a>
+          <a href="#" style="color:var(--text-dim); text-decoration:none">Terms</a>
+          <a href="#" style="color:var(--text-dim); text-decoration:none">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Futuristic Interaction Controller -->
+  <script src="assets/js/futuristic.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Quote // NocturneArt — Holocore Project Brief &amp; Price Simulator</title>
+  <meta name="description" content="Calculate your production budget, choose your speed tier, and send your project brief. 12-hour written response.">
+  <meta name="theme-color" content="#050608">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/futuristic.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23050608' stroke='%2300f0ff' stroke-width='4'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='bold' fill='%2300f0ff' text-anchor='middle'>N</text></svg>">
+</head>
+<body>
+
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- High-Tech Telemetry Bar -->
+  <aside class="telemetry-bar" aria-label="System Telemetry">
+    <div class="telemetry-left">
+      <div class="telem-item">SYS: <span>ONLINE</span></div>
+      <div class="telem-item">VAULT: <span>12 MASTER ARTWORKS</span></div>
+      <div class="telem-item">CLUSTER: <span>128 RTX 6000 NODES</span></div>
+      <div class="telem-item">RATE: <span id="telem-fps">60 FPS</span></div>
+    </div>
+    <div class="telemetry-right">
+      <button class="telem-btn" id="telem-audio-toggle" type="button" aria-label="Toggle UI Audio">SOUND: MUTED</button>
+      <button class="telem-btn" id="telem-scan-toggle" type="button" aria-label="Toggle Scanlines">SCANLINES</button>
+      <button class="telem-btn" id="telem-matrix-toggle" type="button" aria-label="Toggle Matrix Mode">MATRIX</button>
+    </div>
+  </aside>
+
+  <!-- Cyber Navigation Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="NocturneArt Quantum Home">
+        <div class="brand__mark">N</div>
+        <div class="brand__title-group">
+          <span class="brand__name">NocturneArt</span>
+          <span class="brand__sub">Quantum Production Lab</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav__link" href="index.html#overview">Overview</a>
+        <a class="nav__link" href="index.html#deck">Showcase</a>
+        <a class="nav__link" href="index.html#services">Services</a>
+        <a class="nav__link" href="index.html#artworks">Artworks</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
+        <a class="nav__link" href="studio.html">Studio</a>
+        <a class="nav__link is-active" href="index.html#quote-calc">Simulator</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--cyan btn--sm" href="index.html#quote-calc">Launch Brief</a>
+        <button class="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="wrap" style="text-align: center;">
+        <div class="cyber-kicker">Transparent Scope &amp; Pricing</div>
+        <h1 class="hero__title">
+          Initiate Your Project<br>
+          <span class="row-gradient">Transmission Brief</span>
+        </h1>
+        <p class="hero__lede" style="margin: 0 auto 2.5rem;">
+          Configure your scope below to estimate the investment and written turnaround calendar. Copy the generated transmission brief or submit it directly to our studio floor.
+        </p>
+      </div>
+    </section>
+
+    <!-- Holocore Simulator -->
+    <section class="section" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="calculator-panel" id="holocore-calculator">
+          <div class="calc-options">
+            <div>
+              <span class="calc-group-label">01 // Select Production Desk</span>
+              <div class="calc-chips">
+                <button class="calc-chip active" data-service="vfx" type="button">VFX &amp; Compositing</button>
+                <button class="calc-chip" data-service="anim" type="button">3D Animation</button>
+                <button class="calc-chip" data-service="art" type="button">Digital Art &amp; Ref</button>
+                <button class="calc-chip" data-service="suite" type="button">Full Studio Suite</button>
+              </div>
+            </div>
+
+            <div class="calc-slider-wrap">
+              <div class="calc-slider-header">
+                <span>02 // Scope &amp; Runtime Scale</span>
+                <b id="calc-scope-val">30s runtime / shots</b>
+              </div>
+              <input class="calc-range" id="calc-scope-slider" type="range" min="10" max="180" value="30" step="5">
+            </div>
+
+            <div>
+              <span class="calc-group-label">03 // Delivery Speed Tier</span>
+              <div class="calc-chips">
+                <button class="calc-chip active" data-speed="standard" type="button">Standard (12 Days)</button>
+                <button class="calc-chip" data-speed="priority" type="button">Warp Priority (5 Days)</button>
+                <button class="calc-chip" data-speed="hyperdrive" type="button">Hyperdrive (48 Hours)</button>
+              </div>
+            </div>
+
+            <div>
+              <span class="calc-group-label">04 // High-End Deliverables &amp; Add-Ons</span>
+              <div class="calc-addons">
+                <label class="calc-checkbox-label"><input type="checkbox" data-addon="8k"><span>8K DCI ProRes Master</span></label>
+                <label class="calc-checkbox-label"><input type="checkbox" data-addon="sound"><span>Dolby Atmos Sound Mix</span></label>
+                <label class="calc-checkbox-label"><input type="checkbox" data-addon="sources"><span>Full Project Source Files</span></label>
+                <label class="calc-checkbox-label"><input type="checkbox" data-addon="rights"><span>Full Commercial IP Buyout</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-summary">
+            <div>
+              <div class="summary-headline">ESTIMATED PRODUCTION BUDGET</div>
+              <div class="price-display">
+                <div class="price-sub">Fixed Quote Estimate (USD)</div>
+                <div class="price-val" id="calc-price-display">$2,100 <span>– $2,500</span></div>
+              </div>
+
+              <div class="timeline-val" id="calc-timeline-display">
+                Guaranteed Delivery: <b>Standard Orbital (12 Days)</b>
+              </div>
+
+              <p class="mono" style="font-size:0.75rem; color:var(--text-muted); margin-bottom:1.5rem">
+                ✓ No payment collected on this website.<br>
+                ✓ Quoted individually with written milestone contract.<br>
+                ✓ Delivered on the exact date agreed, or 20% studio credit.
+              </p>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.75rem">
+              <button class="btn btn--cyan" id="calc-copy-brief-btn" type="button">
+                <span>Copy Transmission Brief</span>
+              </button>
+              <a class="btn btn--magenta" id="calc-email-brief-btn" href="mailto:nexorasyndicateltd@gmail.com?subject=NocturneArt%20Project%20Transmission%20Brief">
+                <span>Send Brief via Email</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__wordmark">NOCTURNEART</div>
+      <div class="footer__bottom">
+        <div>© 2026 NocturneArt. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem">
+          <a href="index.html" style="color:var(--text-dim); text-decoration:none">Home</a>
+          <a href="portfolio.html" style="color:var(--text-dim); text-decoration:none">Portfolio</a>
+          <a href="studio.html" style="color:var(--text-dim); text-decoration:none">Studio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/futuristic.js"></script>
+</body>
+</html>
+

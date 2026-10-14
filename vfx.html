@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VFX &amp; Compositing Desk // NocturneArt — High-End Film &amp; Game VFX</title>
+  <meta name="description" content="Visual effects, CG integration, camera tracking, plate cleanup and finishing for cinema, game cinematics and commercial trailers.">
+  <meta name="theme-color" content="#050608">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/futuristic.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23050608' stroke='%2300f0ff' stroke-width='4'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='bold' fill='%2300f0ff' text-anchor='middle'>N</text></svg>">
+</head>
+<body>
+
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- High-Tech Telemetry Bar -->
+  <aside class="telemetry-bar" aria-label="System Telemetry">
+    <div class="telemetry-left">
+      <div class="telem-item">SYS: <span>ONLINE</span></div>
+      <div class="telem-item">VAULT: <span>12 MASTER ARTWORKS</span></div>
+      <div class="telem-item">CLUSTER: <span>128 RTX 6000 NODES</span></div>
+      <div class="telem-item">RATE: <span id="telem-fps">60 FPS</span></div>
+    </div>
+    <div class="telemetry-right">
+      <button class="telem-btn" id="telem-audio-toggle" type="button" aria-label="Toggle UI Audio">SOUND: MUTED</button>
+      <button class="telem-btn" id="telem-scan-toggle" type="button" aria-label="Toggle Scanlines">SCANLINES</button>
+      <button class="telem-btn" id="telem-matrix-toggle" type="button" aria-label="Toggle Matrix Mode">MATRIX</button>
+    </div>
+  </aside>
+
+  <!-- Cyber Navigation Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="NocturneArt Quantum Home">
+        <div class="brand__mark">N</div>
+        <div class="brand__title-group">
+          <span class="brand__name">NocturneArt</span>
+          <span class="brand__sub">Quantum Production Lab</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav__link" href="index.html#overview">Overview</a>
+        <a class="nav__link" href="index.html#deck">Showcase</a>
+        <a class="nav__link" href="index.html#services">Services</a>
+        <a class="nav__link" href="index.html#vfx-lab">VFX Lab</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
+        <a class="nav__link" href="studio.html">Studio</a>
+        <a class="nav__link" href="index.html#quote-calc">Simulator</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--cyan btn--sm" href="index.html#quote-calc">Launch Brief</a>
+        <button class="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <div class="cyber-kicker">Desk 02 // Visual Effects &amp; CGI</div>
+          <h1 class="hero__title">
+            Photoreal VFX,<br>
+            <span class="row-gradient">Compositing &amp; CG</span><br>
+            Integration
+          </h1>
+          <p class="hero__lede">
+            From seamless rig removals and 3D camera tracks to complex quantum particle singularities and cinematic environment matte extensions. If you can spot the boundary, we are not done.
+          </p>
+          <div class="hero__cta-group">
+            <a class="btn btn--cyan btn--lg" href="quote.html">Quote a VFX Shot</a>
+            <a class="btn btn--outline-cyan btn--lg" href="#breakdown">Inspect Breakdown Lab</a>
+          </div>
+        </div>
+
+        <div class="cyber-deck">
+          <div class="deck-header">
+            <div class="deck-title"><i></i><span>VFX PIPELINE // FOUNDRY NUKE &amp; HOUDINI</span></div>
+          </div>
+          <div class="deck-screen" style="display:flex; align-items:center; justify-content:center; background: radial-gradient(circle at center, rgba(0, 240, 255, 0.15), rgba(5, 6, 8, 0.95)); border: 1px solid var(--border-neon);">
+            <div style="text-align:center; padding: 2rem;">
+              <div class="mono" style="font-size:1.4rem; color:var(--cyan); letter-spacing:0.15em; margin-bottom:0.5rem">FOUNDRY NUKE &amp; HOUDINI</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); letter-spacing:0.08em">32-BIT EXR MULTI-PASS COMPOSITING &amp; PARTICLES</div>
+            </div>
+            <div class="deck-hud-overlay" aria-hidden="true">
+              <div class="deck-hud-top">
+                <span>ONLINE ● ACEScg</span>
+                <span>4K DCI // 24 FPS</span>
+              </div>
+              <div class="deck-hud-bottom">
+                <div class="wave-bars">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+                <span class="mono" style="font-size:0.65rem; color:var(--cyan)">COMP: 32-BIT EXR</span>
+              </div>
+            </div>
+          </div>
+          <div class="deck-footer">
+            <span>PIPELINE: FOUNDRY NUKE // HOUDINI</span>
+            <span>COLOR SPACE: ACEScg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VFX Services Grid -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Production Capabilities</div>
+          <h2 class="section-title">VFX Deliverables On The Floor</h2>
+          <p class="section-subtitle">Deep multi-channel EXR compositing, sub-pixel 3D tracking, and explosive CG particle integration.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-badge">CAPABILITY 01</span>
+            <h3>Deep Compositing</h3>
+            <p>Multi-channel EXR compositing matching grain, sensor bokeh, chromatic aberration, and photorealistic depth-of-field falloff.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">CAPABILITY 02</span>
+            <h3>3D Camera Tracking</h3>
+            <p>Precision sub-pixel 3D camera and object tracks ensuring CG assets anchor rock-solid into dynamic handheld plates.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">CAPABILITY 03</span>
+            <h3>Rig Cleanup &amp; Beauty</h3>
+            <p>Flawless wire harness removal, boom mic cleanup, skin beauty smoothing, and complex screen replacements that hold in 4K DCI.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">CAPABILITY 04</span>
+            <h3>CG &amp; FX Integration</h3>
+            <p>Houdini particle simulations, energy portals, plasma explosions, and interactive lighting bouncing naturally off actors and props.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__wordmark">NOCTURNEART</div>
+      <div class="footer__bottom">
+        <div>© 2026 NocturneArt. Quantum VFX Desk. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem">
+          <a href="index.html" style="color:var(--text-dim); text-decoration:none">Home</a>
+          <a href="portfolio.html" style="color:var(--text-dim); text-decoration:none">Portfolio</a>
+          <a href="quote.html" style="color:var(--text-dim); text-decoration:none">Quote</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/futuristic.js"></script>
+</body>
+</html>
+

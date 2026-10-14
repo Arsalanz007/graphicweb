@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Archive // NocturneArt — 4K Artworks, VFX & Motion Gallery</title>
+  <meta name="description" content="Explore selected productions, visual effects shots, 3D animations, and digital character artworks from NocturneArt.">
+  <meta name="theme-color" content="#050608">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Futuristic Stylesheet -->
+  <link rel="stylesheet" href="assets/css/futuristic.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23050608' stroke='%2300f0ff' stroke-width='4'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='bold' fill='%2300f0ff' text-anchor='middle'>N</text></svg>">
+</head>
+<body>
+
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- High-Tech Telemetry Bar -->
+  <aside class="telemetry-bar" aria-label="System Telemetry">
+    <div class="telemetry-left">
+      <div class="telem-item">SYS: <span>ONLINE</span></div>
+      <div class="telem-item">VAULT: <span>12 MASTER ARTWORKS</span></div>
+      <div class="telem-item">CLUSTER: <span>128 RTX 6000 NODES</span></div>
+      <div class="telem-item">RATE: <span id="telem-fps">60 FPS</span></div>
+    </div>
+    <div class="telemetry-right">
+      <button class="telem-btn" id="telem-audio-toggle" type="button" aria-label="Toggle UI Audio">SOUND: MUTED</button>
+      <button class="telem-btn" id="telem-scan-toggle" type="button" aria-label="Toggle Scanlines">SCANLINES</button>
+      <button class="telem-btn" id="telem-matrix-toggle" type="button" aria-label="Toggle Matrix Mode">MATRIX</button>
+    </div>
+  </aside>
+
+  <!-- Cyber Navigation Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="NocturneArt Quantum Home">
+        <div class="brand__mark">N</div>
+        <div class="brand__title-group">
+          <span class="brand__name">NocturneArt</span>
+          <span class="brand__sub">Quantum Production Lab</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav__link" href="index.html#overview">Overview</a>
+        <a class="nav__link" href="index.html#deck">Showcase</a>
+        <a class="nav__link" href="index.html#services">Services</a>
+        <a class="nav__link" href="index.html#artworks">Artworks</a>
+        <a class="nav__link is-active" href="portfolio.html">Portfolio</a>
+        <a class="nav__link" href="studio.html">Studio</a>
+        <a class="nav__link" href="index.html#quote-calc">Simulator</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--cyan btn--sm" href="index.html#quote-calc">Launch Brief</a>
+        <button class="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="wrap" style="text-align: center;">
+        <div class="cyber-kicker">Master Vault Archive</div>
+        <h1 class="hero__title">
+          Selected Productions &amp;<br>
+          <span class="row-gradient">Futuristic Artworks</span>
+        </h1>
+        <p class="hero__lede" style="margin: 0 auto 2.5rem;">
+          Filter by production desk. Click any still to launch the holographic inspector with full technical specifications, color profiles, and software pipeline data.
+        </p>
+
+        <!-- Filters -->
+        <div class="gallery-filters" role="tablist">
+          <button class="filter-btn active" data-filter="all" type="button">All Works (12)</button>
+          <button class="filter-btn" data-filter="scifi" type="button">Sci-Fi &amp; Cyber</button>
+          <button class="filter-btn" data-filter="anime" type="button">Anime &amp; Stylized</button>
+          <button class="filter-btn" data-filter="fantasy" type="button">Fantasy &amp; Mythic</button>
+          <button class="filter-btn" data-filter="action" type="button">Action &amp; Combat</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="section" style="padding-top: 1rem;">
+      <div class="wrap">
+        <div class="gallery-grid">
+
+          <!-- 01: Aethelgard Knight (pic1.jpeg) -->
+          <article class="artwork-card" data-cat="fantasy"
+            data-title="Aethelgard Knight — Citadel Moon Vigil"
+            data-meta="Character Art // Medieval Fantasy &amp; Moonlight"
+            data-img="assets/img/pic1.jpeg"
+            data-res="1167 x 1276 (Hi-Res Master)"
+            data-fps="Still Graphic"
+            data-soft="Clip Studio Paint / Photoshop"
+            data-color="sRGB Display P3"
+            data-desc="Hand-rendered fantasy warrior in heavy plate armor with flowing emerald cape, keeping solitary vigil over a jagged moonlit mountain fortress beneath a cosmic starfield.">
+            <div class="artwork-media">
+              <img src="assets/img/pic1.jpeg" alt="Aethelgard Knight — Citadel Moon Vigil" loading="lazy">
+              <span class="artwork-card-tag">Fantasy Knight</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Fantasy Lore // Moon Vigil</div>
+              <h3 class="artwork-title">Aethelgard Knight Vigil</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">1167x1276</span></div>
+            </div>
+          </article>
+
+          <!-- 02: The Skunkworks Engineer (pic2.jpeg) -->
+          <article class="artwork-card" data-cat="scifi"
+            data-title="The Skunkworks Engineer — Hangar Lab"
+            data-meta="Character Concept // Prototype Workshop"
+            data-img="assets/img/pic2.jpeg"
+            data-res="1169 x 1258 (Workshop LookDev)"
+            data-fps="Still Graphic"
+            data-soft="Clip Studio / Procreate"
+            data-color="sRGB Calibrated"
+            data-desc="Energetic aerospace engineer and modelmaker surrounded by retro-futuristic rocket schematics, custom vehicle blueprints, and precision workbench tools.">
+            <div class="artwork-media">
+              <img src="assets/img/pic2.jpeg" alt="The Skunkworks Engineer — Hangar Lab" loading="lazy">
+              <span class="artwork-card-tag">Character Concept</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Character Lore // Workshop</div>
+              <h3 class="artwork-title">Skunkworks Engineer</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">LookDev</span></div>
+            </div>
+          </article>
+
+          <!-- 03: The Grand Magister (pic3.jpeg) -->
+          <article class="artwork-card" data-cat="fantasy"
+            data-title="The Grand Magister — Mystic Sanctum"
+            data-meta="Arcane Lore // Golden Spellcraft Circle"
+            data-img="assets/img/pic3.jpeg"
+            data-res="1168 x 1207 (Master LookDev)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Corel Painter"
+            data-color="Adobe RGB 1998"
+            data-desc="Master sorcerer cloaked in crimson and gold channeling intricate glowing mandala runic spells, seated upon an ancient monolith before celestial floating citadels.">
+            <div class="artwork-media">
+              <img src="assets/img/pic3.jpeg" alt="The Grand Magister — Mystic Sanctum" loading="lazy">
+              <span class="artwork-card-tag">Mystic Sorcery</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Arcane Lore // Spellcraft</div>
+              <h3 class="artwork-title">The Grand Magister</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">Adobe RGB</span></div>
+            </div>
+          </article>
+
+          <!-- 04: Neo-Leaf Shinobi (pic4.jpeg) -->
+          <article class="artwork-card" data-cat="anime"
+            data-title="Neo-Leaf Shinobi — Cyber Streetwear Edition"
+            data-meta="Anime LookDev // Konoha Street Culture"
+            data-img="assets/img/pic4.jpeg"
+            data-res="1169 x 1275 (Anime LookDev)"
+            data-fps="Still Graphic"
+            data-soft="Clip Studio Paint / Photoshop"
+            data-color="Display P3 Vibrant"
+            data-desc="Stylized anime shinobi in high-top sneakers, dual-tone hoodie, and techwear pants taking five on the stone curb outside a bustling nighttime ramen shop decorated with paper lanterns.">
+            <div class="artwork-media">
+              <img src="assets/img/pic4.jpeg" alt="Neo-Leaf Shinobi — Cyber Streetwear Edition" loading="lazy">
+              <span class="artwork-card-tag">Streetwear Shinobi</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Anime Lore // Street Culture</div>
+              <h3 class="artwork-title">Neo-Leaf Shinobi</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">Display P3</span></div>
+            </div>
+          </article>
+
+          <!-- 05: Nomad Gunslinger (pic5.jpeg) -->
+          <article class="artwork-card" data-cat="action"
+            data-title="Nomad Gunslinger — Desert Canyon Duelist"
+            data-meta="Action Key Art // Western Samurai Stance"
+            data-img="assets/img/pic5.jpeg"
+            data-res="1168 x 1205 (Action Master)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Clip Studio"
+            data-color="Rec.709 Cinema"
+            data-desc="High-stakes standoff featuring a duster-clad western gunslinger wielding both a heavy revolver and a high-carbon katana in a sun-scorched red rock canyon.">
+            <div class="artwork-media">
+              <img src="assets/img/pic5.jpeg" alt="Nomad Gunslinger — Desert Canyon Duelist" loading="lazy">
+              <span class="artwork-card-tag">Desert Duelist</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Action Concept // Western Ronin</div>
+              <h3 class="artwork-title">Nomad Gunslinger</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">Rec.709</span></div>
+            </div>
+          </article>
+
+          <!-- 06: Molten Spartan Vanguard (pic6.jpeg) -->
+          <article class="artwork-card" data-cat="fantasy"
+            data-title="Molten Spartan Vanguard — Battle Axe Stance"
+            data-meta="Ancient Lore // Mythic Warrior"
+            data-img="assets/img/pic6.jpeg"
+            data-res="1169 x 1231 (Mythic Master)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Digital Inking"
+            data-color="ACEScg Linear"
+            data-desc="Mythic Spartan warrior in battle-scarred bronze Corinthian helm, wielding a double-handed war axe and dented lambda hoplite shield before a sacred primeval forest sentinel.">
+            <div class="artwork-media">
+              <img src="assets/img/pic6.jpeg" alt="Molten Spartan Vanguard — Battle Axe Stance" loading="lazy">
+              <span class="artwork-card-tag">Spartan Warrior</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Mythic Lore // Hoplite</div>
+              <h3 class="artwork-title">Spartan Vanguard</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">ACEScg</span></div>
+            </div>
+          </article>
+
+          <!-- 07: Mountain Lodge Artisan (pic7.jpeg) -->
+          <article class="artwork-card" data-cat="anime"
+            data-title="Mountain Lodge Artisan — Fireside Culinary Craft"
+            data-meta="Narrative Scene // Cozy Autumn Retreat"
+            data-img="assets/img/pic7.jpeg"
+            data-res="1169 x 1396 (Narrative Master)"
+            data-fps="Still Graphic"
+            data-soft="Clip Studio / Procreate"
+            data-color="Warm sRGB"
+            data-desc="Charming anime character artisan preparing a gourmet steak over a hearth fire inside a sun-drenched timber cabin with expansive alpine and autumn foliage lake views.">
+            <div class="artwork-media">
+              <img src="assets/img/pic7.jpeg" alt="Mountain Lodge Artisan — Fireside Culinary Craft" loading="lazy">
+              <span class="artwork-card-tag">Scene Painting</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Narrative Scene // Hearth Craft</div>
+              <h3 class="artwork-title">Mountain Lodge Artisan</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">300 DPI</span></div>
+            </div>
+          </article>
+
+          <!-- 08: Butterflies of the Night Forest (pic8.jpeg) -->
+          <article class="artwork-card" data-cat="anime"
+            data-title="Butterflies of the Night Forest — Insect Hashira"
+            data-meta="Anime Illustration // Bioluminescent Grove"
+            data-img="assets/img/pic8.jpeg"
+            data-res="1280 x 1280 (Master 300 DPI)"
+            data-fps="Still Graphic"
+            data-soft="Clip Studio Paint / Photoshop"
+            data-color="Vibrant sRGB P3"
+            data-desc="Ethereal anime maiden adorned in butterfly-wing patterned haori standing amidst a bioluminescent twilight forest illuminated by glowing golden moths and fireflies.">
+            <div class="artwork-media">
+              <img src="assets/img/pic8.jpeg" alt="Butterflies of the Night Forest — Insect Hashira" loading="lazy">
+              <span class="artwork-card-tag">Character Lore</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Anime Illustration // Spirit Grove</div>
+              <h3 class="artwork-title">Insect Hashira</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">1280x1280</span></div>
+            </div>
+          </article>
+
+          <!-- 09: KRV 180 Cyber Commuter (pic9.jpeg) -->
+          <article class="artwork-card" data-cat="scifi"
+            data-title="KRV 180 Cyber Commuter — Neon Garage"
+            data-meta="Urban LookDev // Neo-Metropolis Rider"
+            data-img="assets/img/pic9.jpeg"
+            data-res="1280 x 1280 (Hi-Res Master)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Illustrator"
+            data-color="Dynamic Neon sRGB"
+            data-desc="Cyberpunk street youth posing beside a tuned KRV 180 sports scooter inside a neon-lit mechanic workshop with holographic diagnostic displays.">
+            <div class="artwork-media">
+              <img src="assets/img/pic9.jpeg" alt="KRV 180 Cyber Commuter — Neon Garage" loading="lazy">
+              <span class="artwork-card-tag">Cyber Street</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Urban Concept // Cyber Commuter</div>
+              <h3 class="artwork-title">KRV 180 Cyber Rider</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">Neon sRGB</span></div>
+            </div>
+          </article>
+
+          <!-- 10: Cosmic Voyager (pic10.jpeg) -->
+          <article class="artwork-card" data-cat="scifi"
+            data-title="Cosmic Voyager — Moon Orbit Meditation"
+            data-meta="Sci-Fi Concept // Deep Space Singularity"
+            data-img="assets/img/pic10.jpeg"
+            data-res="1280 x 1280 (Cosmic LookDev)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Corel Painter"
+            data-color="ACEScg Wide Gamut"
+            data-desc="Horned alien traveler in violet pressure suit sitting cross-legged in contemplative stillness on the lunar surface gazing out into an infinite spiral galaxy.">
+            <div class="artwork-media">
+              <img src="assets/img/pic10.jpeg" alt="Cosmic Voyager — Moon Orbit Meditation" loading="lazy">
+              <span class="artwork-card-tag">Deep Space</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Sci-Fi Concept // Deep Orbit</div>
+              <h3 class="artwork-title">Cosmic Voyager</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">ACEScg 8K</span></div>
+            </div>
+          </article>
+
+          <!-- 11: Crimson Twin Assassins (pic11.jpeg) -->
+          <article class="artwork-card" data-cat="action"
+            data-title="Crimson Twin Assassins — Sunset Torii Shrine"
+            data-meta="Dynamic Action // Torii Shrine Duel"
+            data-img="assets/img/pic11.jpeg"
+            data-res="1280 x 1280 (Dynamic Action)"
+            data-fps="Still Graphic"
+            data-soft="Clip Studio Paint / Photoshop"
+            data-color="Sunset Wide Gamut"
+            data-desc="Twin female covert operatives in tactical street gear executing a synchronized breach along a stone lantern path approaching a mountain torii shrine at dusk.">
+            <div class="artwork-media">
+              <img src="assets/img/pic11.jpeg" alt="Crimson Twin Assassins — Sunset Torii Shrine" loading="lazy">
+              <span class="artwork-card-tag">Tactical Action</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Action Concept // Twin Breach</div>
+              <h3 class="artwork-title">Crimson Twin Assassins</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">Wide Gamut</span></div>
+            </div>
+          </article>
+
+          <!-- 12: Vanguard Exosuit Samurai (pic12.jpeg) -->
+          <article class="artwork-card" data-cat="scifi"
+            data-title="Vanguard Exosuit Samurai — Cyber Corridor"
+            data-meta="Hard-Surface LookDev // Cybernetic Ronin"
+            data-img="assets/img/pic12.jpeg"
+            data-res="1024 x 1024 (Hard-Surface LookDev)"
+            data-fps="Still Graphic"
+            data-soft="Photoshop / Blender 3D"
+            data-color="High-Contrast RGB"
+            data-desc="Green-haired cyber ronin clad in matte carbon armor pulsing with crimson power conduits, carrying an energy katana through a pressurized bulkhead corridor.">
+            <div class="artwork-media">
+              <img src="assets/img/pic12.jpeg" alt="Vanguard Exosuit Samurai — Cyber Corridor" loading="lazy">
+              <span class="artwork-card-tag">Exosuit Ronin</span>
+            </div>
+            <div class="artwork-body">
+              <div class="artwork-meta">Hard-Surface // Cybernetic Ronin</div>
+              <h3 class="artwork-title">Vanguard Exosuit Samurai</h3>
+              <div class="artwork-footer"><span>Inspect Tech Specs</span><span class="mono">1024x1024</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Hologram Modal -->
+  <div class="hologram-modal" id="hologram-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Inspector">✕</button>
+      <div class="modal-preview-pane">
+        <img id="modal-preview-img" src="" alt="Artwork Preview">
+      </div>
+      <div class="modal-info-pane">
+        <div>
+          <span class="cyber-kicker" id="modal-meta">Concept Art // LookDev</span>
+          <h3 id="modal-title">Artwork Title</h3>
+          <p id="modal-desc" style="color:var(--text-muted); font-size:0.92rem; margin-top:0.75rem; line-height:1.6;"></p>
+        </div>
+        <div>
+          <span class="calc-group-label">TECHNICAL SPECIFICATIONS</span>
+          <table class="spec-table">
+            <tbody>
+              <tr><td>Resolution Master</td><td id="spec-res">4K DCI (4096x2160)</td></tr>
+              <tr><td>Frame Timing</td><td id="spec-fps">24.000 fps</td></tr>
+              <tr><td>Software Pipeline</td><td id="spec-soft">Nuke / Blender / Resolve</td></tr>
+              <tr><td>Color Gamut / Profile</td><td id="spec-color">ACEScg Rec.709</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <span class="calc-group-label">STUDIO ACTIONS</span>
+          <div style="display:flex; gap:0.75rem; margin-top:0.5rem">
+            <a class="btn btn--cyan btn--sm" href="quote.html">Book Production</a>
+            <a class="btn btn--outline-cyan btn--sm" href="mailto:nexorasyndicateltd@gmail.com">Inquire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__wordmark">NOCTURNEART</div>
+      <div class="footer__bottom">
+        <div>© 2026 NocturneArt. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem">
+          <a href="index.html" style="color:var(--text-dim); text-decoration:none">Home</a>
+          <a href="quote.html" style="color:var(--text-dim); text-decoration:none">Quote</a>
+          <a href="studio.html" style="color:var(--text-dim); text-decoration:none">Studio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/futuristic.js"></script>
+</body>
+</html>
+

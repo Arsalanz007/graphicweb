@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Studio Floor // NocturneArt — Hardware, Philosophy &amp; Pipeline</title>
+  <meta name="description" content="Inside NocturneArt Quantum Production Lab. Hardware specs, 10GbE network storage, calibration standards, and our non-negotiable floor rules.">
+  <meta name="theme-color" content="#050608">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/futuristic.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23050608' stroke='%2300f0ff' stroke-width='4'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='bold' fill='%2300f0ff' text-anchor='middle'>N</text></svg>">
+</head>
+<body>
+
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- High-Tech Telemetry Bar -->
+  <aside class="telemetry-bar" aria-label="System Telemetry">
+    <div class="telemetry-left">
+      <div class="telem-item">SYS: <span>ONLINE</span></div>
+      <div class="telem-item">VAULT: <span>12 MASTER ARTWORKS</span></div>
+      <div class="telem-item">CLUSTER: <span>128 RTX 6000 NODES</span></div>
+      <div class="telem-item">RATE: <span id="telem-fps">60 FPS</span></div>
+    </div>
+    <div class="telemetry-right">
+      <button class="telem-btn" id="telem-audio-toggle" type="button" aria-label="Toggle UI Audio">SOUND: MUTED</button>
+      <button class="telem-btn" id="telem-scan-toggle" type="button" aria-label="Toggle Scanlines">SCANLINES</button>
+      <button class="telem-btn" id="telem-matrix-toggle" type="button" aria-label="Toggle Matrix Mode">MATRIX</button>
+    </div>
+  </aside>
+
+  <!-- Cyber Navigation Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="NocturneArt Quantum Home">
+        <div class="brand__mark">N</div>
+        <div class="brand__title-group">
+          <span class="brand__name">NocturneArt</span>
+          <span class="brand__sub">Quantum Production Lab</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav__link" href="index.html#overview">Overview</a>
+        <a class="nav__link" href="index.html#deck">Showcase</a>
+        <a class="nav__link" href="index.html#services">Services</a>
+        <a class="nav__link" href="index.html#vfx-lab">VFX Lab</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
+        <a class="nav__link is-active" href="studio.html">Studio</a>
+        <a class="nav__link" href="index.html#quote-calc">Simulator</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--cyan btn--sm" href="index.html#quote-calc">Launch Brief</a>
+        <button class="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <div class="cyber-kicker">Facility &amp; Philosophy</div>
+          <h1 class="hero__title">
+            A production floor,<br>
+            <span class="row-gradient">not a marketplace</span><br>
+            of freelancers
+          </h1>
+          <p class="hero__lede">
+            NocturneArt operates across three dedicated desks under one roof: 2D/3D animation, visual effects, and digital character art. Motion, illusion, and stills share the same brief, the same written deadline, and the same lead artist.
+          </p>
+          <div class="hero__stats-row">
+            <div class="stat-item"><div class="stat-num">640<span>+</span></div><div class="stat-label">Commissions Delivered</div></div>
+            <div class="stat-item"><div class="stat-num">10<span>+ yrs</span></div><div class="stat-label">Production Experience</div></div>
+            <div class="stat-item"><div class="stat-num">98<span>%</span></div><div class="stat-label">Repeat &amp; Referral Rate</div></div>
+          </div>
+        </div>
+
+        <div class="cyber-deck">
+          <div class="deck-header">
+            <div class="deck-title"><i></i><span>STUDIO FLOOR DIRECTORY // OPERATIONS CONSOLE</span></div>
+          </div>
+          <div class="deck-screen" style="display:flex; flex-direction:column; justify-content:center; padding:2rem; background: radial-gradient(circle at center, rgba(0, 240, 255, 0.1), rgba(5, 6, 8, 0.98));">
+            <div class="mono" style="color:var(--cyan); font-size:1.1rem; margin-bottom:1rem; letter-spacing:0.1em">NOCTURNE ATELIER FLOOR STATUS: NOMINAL</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; font-size:0.85rem;">
+              <div style="background:rgba(255,255,255,0.03); padding:0.75rem; border:1px solid var(--border-dim); border-radius:var(--radius-sm)">
+                <span style="color:var(--text-muted); display:block; font-size:0.7rem;">PIPELINE STATUS</span>
+                <span class="mono" style="color:var(--cyan)">ACEScg Rec.2020 ACTIVE</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.03); padding:0.75rem; border:1px solid var(--border-dim); border-radius:var(--radius-sm)">
+                <span style="color:var(--text-muted); display:block; font-size:0.7rem;">FLOOR DESKS</span>
+                <span class="mono" style="color:#fff">3 UNIFIED DISCIPLINES</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.03); padding:0.75rem; border:1px solid var(--border-dim); border-radius:var(--radius-sm)">
+                <span style="color:var(--text-muted); display:block; font-size:0.7rem;">COMMERCIAL IP</span>
+                <span class="mono" style="color:var(--cyan)">100% CLIENT OWNED</span>
+              </div>
+              <div style="background:rgba(255,255,255,0.03); padding:0.75rem; border:1px solid var(--border-dim); border-radius:var(--radius-sm)">
+                <span style="color:var(--text-muted); display:block; font-size:0.7rem;">DELIVERY SLA</span>
+                <span class="mono" style="color:#fff">LOCKED TO THE MINUTE</span>
+              </div>
+            </div>
+            <div class="deck-hud-overlay" aria-hidden="true">
+              <div class="deck-hud-top">
+                <span>FACILITY: ACTIVE</span>
+                <span>PRODUCTION SECURE</span>
+              </div>
+              <div class="deck-hud-bottom">
+                <div class="wave-bars">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+                <span class="mono" style="font-size:0.65rem; color:var(--cyan)">TRANSMISSION: SECURE</span>
+              </div>
+            </div>
+          </div>
+          <div class="deck-footer">
+            <span>LOCATION: GLOBAL DISTRIBUTED PRODUCTION</span>
+            <span>ENCRYPTION: 256-BIT CLIENT VAULT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Four Non-Negotiable Rules -->
+    <section class="section section--darker">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Operating Standards</div>
+          <h2 class="section-title">Four Floor Rules We Do Not Bend</h2>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-badge">RULE 01</span>
+            <h3>Early Checkpoints</h3>
+            <p>Rough cut, animatic, and colour sketch checkpoints are hard-coded into every milestone. You see the work while redirection is still cost-free.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">RULE 02</span>
+            <h3>Strict Integrity</h3>
+            <p>If a timeline is unrealistic or a required aesthetic is outside our wheelhouse, we decline upfront rather than accept and disappoint.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">RULE 03</span>
+            <h3>Universal Respect</h3>
+            <p>Original species, sci-fi lore, humanoid, scalie, avian, hybrid, or unlabelled creators. Zero gatekeeping—every visionary character is welcomed.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">RULE 04</span>
+            <h3>Guaranteed IP Protection</h3>
+            <p>Your original designs remain 100% yours. We never resell, repurpose, or license your character assets. Written buyout certificates included.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floor Telemetry & Hardware -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Infrastructure Stack</div>
+          <h2 class="section-title">Hardware On The Floor</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <h3 style="color:var(--cyan); margin-bottom:0.75rem;">Compute &amp; Render Nodes</h3>
+            <p class="review-text">Dual NVIDIA RTX 6000 Ada workstations paired with liquid-cooled AMD Threadripper 64-core processors for real-time raytracing and sub-frame rendering.</p>
+            <div class="mono" style="font-size:0.75rem; color:var(--text-dim)">GPU POOL: 96GB VRAM PER NODE</div>
+          </article>
+
+          <article class="review-card">
+            <h3 style="color:var(--cyan); margin-bottom:0.75rem;">High-Speed Storage</h3>
+            <p class="review-text">120TB NVMe scratch pool running in RAID-Z2 over dual 10GbE fiber optic switches, allowing seamless uncompressed 8K ProRes playback without dropped frames.</p>
+            <div class="mono" style="font-size:0.75rem; color:var(--text-dim)">BANDWIDTH: 10,000 MB/S FIBER</div>
+          </article>
+
+          <article class="review-card">
+            <h3 style="color:var(--cyan); margin-bottom:0.75rem;">Color &amp; Sound Monitoring</h3>
+            <p class="review-text">Hardware-calibrated reference displays (Calibrite Display Plus HL) certified for Rec.709, DCI-P3, and ACEScg. Genelec nearfield acoustic studio monitors.</p>
+            <div class="mono" style="font-size:0.75rem; color:var(--text-dim)">DELTA E &lt; 0.8 ACCURACY</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__wordmark">NOCTURNEART</div>
+      <div class="footer__bottom">
+        <div>© 2026 NocturneArt. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem">
+          <a href="index.html" style="color:var(--text-dim); text-decoration:none">Home</a>
+          <a href="portfolio.html" style="color:var(--text-dim); text-decoration:none">Portfolio</a>
+          <a href="quote.html" style="color:var(--text-dim); text-decoration:none">Quote</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/futuristic.js"></script>
+</body>
+</html>
+

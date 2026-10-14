@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Desk // NocturneArt — 3D Unreal Engine, 2D &amp; Motion Graphics</title>
+  <meta name="description" content="3D animation, character rigging, Unreal Engine 5 rendering, stylized 2D frame-by-frame and commercial motion graphics.">
+  <meta name="theme-color" content="#050608">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/futuristic.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23050608' stroke='%2300f0ff' stroke-width='4'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='bold' fill='%2300f0ff' text-anchor='middle'>N</text></svg>">
+</head>
+<body>
+
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- High-Tech Telemetry Bar -->
+  <aside class="telemetry-bar" aria-label="System Telemetry">
+    <div class="telemetry-left">
+      <div class="telem-item">SYS: <span>ONLINE</span></div>
+      <div class="telem-item">VAULT: <span>12 MASTER ARTWORKS</span></div>
+      <div class="telem-item">CLUSTER: <span>128 RTX 6000 NODES</span></div>
+      <div class="telem-item">RATE: <span id="telem-fps">60 FPS</span></div>
+    </div>
+    <div class="telemetry-right">
+      <button class="telem-btn" id="telem-audio-toggle" type="button" aria-label="Toggle UI Audio">SOUND: MUTED</button>
+      <button class="telem-btn" id="telem-scan-toggle" type="button" aria-label="Toggle Scanlines">SCANLINES</button>
+      <button class="telem-btn" id="telem-matrix-toggle" type="button" aria-label="Toggle Matrix Mode">MATRIX</button>
+    </div>
+  </aside>
+
+  <!-- Cyber Navigation Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="NocturneArt Quantum Home">
+        <div class="brand__mark">N</div>
+        <div class="brand__title-group">
+          <span class="brand__name">NocturneArt</span>
+          <span class="brand__sub">Quantum Production Lab</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav__link" href="index.html#overview">Overview</a>
+        <a class="nav__link" href="index.html#deck">Showcase</a>
+        <a class="nav__link" href="index.html#services">Services</a>
+        <a class="nav__link" href="index.html#vfx-lab">VFX Lab</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
+        <a class="nav__link" href="studio.html">Studio</a>
+        <a class="nav__link" href="index.html#quote-calc">Simulator</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--cyan btn--sm" href="index.html#quote-calc">Launch Brief</a>
+        <button class="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <div class="cyber-kicker">Desk 01 // Motion &amp; 3D Animation</div>
+          <h1 class="hero__title">
+            Dynamic 3D,<br>
+            <span class="row-gradient">Unreal CGI</span><br>
+            &amp; 2D Motion
+          </h1>
+          <p class="hero__lede">
+            From hard-surface robotic titans and sci-fi idents to hand-crafted 2D character loops and broadcast kinetic typography. The animatic locks firmly before the expensive render passes begin.
+          </p>
+          <div class="hero__cta-group">
+            <a class="btn btn--cyan btn--lg" href="quote.html">Quote Animation</a>
+            <a class="btn btn--outline-cyan btn--lg" href="portfolio.html">Browse Motion Archive</a>
+          </div>
+        </div>
+
+        <div class="cyber-deck">
+          <div class="deck-header">
+            <div class="deck-title"><i></i><span>3D ANIMATION PIPELINE // UNREAL &amp; BLENDER</span></div>
+          </div>
+          <div class="deck-screen" style="display:flex; align-items:center; justify-content:center; background: radial-gradient(circle at center, rgba(0, 240, 255, 0.15), rgba(5, 6, 8, 0.95)); border: 1px solid var(--border-neon);">
+            <div style="text-align:center; padding: 2rem;">
+              <div class="mono" style="font-size:1.4rem; color:var(--cyan); letter-spacing:0.15em; margin-bottom:0.5rem">UNREAL ENGINE 5.5</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); letter-spacing:0.08em">60 FPS RAYTRACED MOTION &amp; CHARACTER RIGGING</div>
+            </div>
+            <div class="deck-hud-overlay" aria-hidden="true">
+              <div class="deck-hud-top">
+                <span>ONLINE ● 60 FPS</span>
+                <span>UNREAL 5.5 LUMEN</span>
+              </div>
+              <div class="deck-hud-bottom">
+                <div class="wave-bars">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+                <span class="mono" style="font-size:0.65rem; color:var(--cyan)">RENDER: RAYTRACED</span>
+              </div>
+            </div>
+          </div>
+          <div class="deck-footer">
+            <span>PIPELINE: UNREAL 5.5 // BLENDER 4.2</span>
+            <span>TIMING: 60 FPS MASTER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation Disciplines Grid -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="cyber-kicker">Core Animation Capabilities</div>
+          <h2 class="section-title">Production Disciplines On The Floor</h2>
+          <p class="section-subtitle">From photoreal 3D product motion to bespoke stylized 2D frame animation, delivered on locked schedules.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-badge">MOTION 01</span>
+            <h3>Photoreal 3D Animation</h3>
+            <p>Product reveals, vehicular simulations, and character sequences rendered with photoreal physical materials and camera dynamics.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">MOTION 02</span>
+            <h3>Stylized 2D Animation</h3>
+            <p>Frame-by-frame hand-painted characters, fluid effects, and charming illustrated stories that preserve genuine human craft.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">MOTION 03</span>
+            <h3>Unreal Engine 5 Cinematics</h3>
+            <p>Virtual production, real-time lighting previews, and high-fidelity video game trailer sequences delivered on compressed schedules.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-badge">MOTION 04</span>
+            <h3>Motion Graphics &amp; Idents</h3>
+            <p>Kinetic branding, sci-fi HUD elements, holographic lower thirds, and broadcast package animations that pop on every display.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__wordmark">NOCTURNEART</div>
+      <div class="footer__bottom">
+        <div>© 2026 NocturneArt. Animation Desk. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem">
+          <a href="index.html" style="color:var(--text-dim); text-decoration:none">Home</a>
+          <a href="portfolio.html" style="color:var(--text-dim); text-decoration:none">Portfolio</a>
+          <a href="quote.html" style="color:var(--text-dim); text-decoration:none">Quote</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/futuristic.js"></script>
+</body>
+</html>
+

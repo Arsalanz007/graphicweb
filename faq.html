@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ // NocturneArt — Pricing, Timelines, Formats &amp; Protocol</title>
+  <meta name="description" content="Answers about pricing, timelines, revisions, file formats, usage rights and how the quote process works at NocturneArt.">
+  <meta name="theme-color" content="#050608">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/futuristic.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23050608' stroke='%2300f0ff' stroke-width='4'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='bold' fill='%2300f0ff' text-anchor='middle'>N</text></svg>">
+  <style>
+    .faq-group { margin-bottom: 3rem; }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: var(--transition-fast);
+    }
+    .faq-item:hover { border-color: var(--cyan); }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-q span:last-child {
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+    .faq-item.is-open .faq-a {
+      max-height: 250px;
+      padding-bottom: 1.25rem;
+    }
+    .faq-item.is-open .faq-q span:last-child {
+      transform: rotate(45deg);
+      color: var(--magenta);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- High-Tech Telemetry Bar -->
+  <aside class="telemetry-bar" aria-label="System Telemetry">
+    <div class="telemetry-left">
+      <div class="telem-item">SYS: <span>ONLINE</span></div>
+      <div class="telem-item">VAULT: <span>12 MASTER ARTWORKS</span></div>
+      <div class="telem-item">CLUSTER: <span>128 RTX 6000 NODES</span></div>
+      <div class="telem-item">RATE: <span id="telem-fps">60 FPS</span></div>
+    </div>
+    <div class="telemetry-right">
+      <button class="telem-btn" id="telem-audio-toggle" type="button" aria-label="Toggle UI Audio">SOUND: MUTED</button>
+      <button class="telem-btn" id="telem-scan-toggle" type="button" aria-label="Toggle Scanlines">SCANLINES</button>
+      <button class="telem-btn" id="telem-matrix-toggle" type="button" aria-label="Toggle Matrix Mode">MATRIX</button>
+    </div>
+  </aside>
+
+  <!-- Cyber Navigation Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="NocturneArt Quantum Home">
+        <div class="brand__mark">N</div>
+        <div class="brand__title-group">
+          <span class="brand__name">NocturneArt</span>
+          <span class="brand__sub">Quantum Production Lab</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <a class="nav__link" href="index.html#overview">Overview</a>
+        <a class="nav__link" href="index.html#deck">Showcase</a>
+        <a class="nav__link" href="index.html#services">Services</a>
+        <a class="nav__link" href="index.html#artworks">Artworks</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
+        <a class="nav__link" href="studio.html">Studio</a>
+        <a class="nav__link" href="index.html#quote-calc">Simulator</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--cyan btn--sm" href="index.html#quote-calc">Launch Brief</a>
+        <button class="burger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom: 2rem;">
+      <div class="wrap" style="text-align: center;">
+        <div class="cyber-kicker">Knowledge Base &amp; Protocol</div>
+        <h1 class="hero__title">
+          Frequently Answered<br>
+          <span class="row-gradient">Production Questions</span>
+        </h1>
+        <p class="hero__lede" style="margin: 0 auto 2.5rem;">
+          Everything you need to know about pricing, deliverables, revisions, milestone contracts, and how our production desks collaborate.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="wrap" style="max-width: 900px;">
+
+        <div class="faq-group">
+          <div class="cyber-kicker">Pricing &amp; Contracts</div>
+          
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span>Why are there no one-click checkout carts?</span><span>+</span></button>
+            <div class="faq-a">A fixed generic checkout cart either overcharges simple productions or compromises on complex ones. Two VFX shots can differ by 40 hours of rotoscoping and 3D simulation. Quoting individually guarantees you pay strictly for your specific scope.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span>How is payment structured?</span><span>+</span></button>
+            <div class="faq-a">Entirely through milestone invoices after you accept the written quote. We never store credit card numbers on-site. Work begins after a standard deposit clears, with the remainder due upon your final master sign-off.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span>Is requesting a quote or brief a commitment?</span><span>+</span></button>
+            <div class="faq-a">Never. A quote is transparent information. Nothing is scheduled or billed until you explicitly confirm the brief and delivery calendar.</div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="cyber-kicker">Timelines &amp; Delivery</div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span>What happens if a deadline slips?</span><span>+</span></button>
+            <div class="faq-a">We hold a 100% written date delivery record. If any milestone is delayed on our end without an agreed change of scope, we issue a 20% studio production credit on your invoice automatically.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span>How many revisions are included?</span><span>+</span></button>
+            <div class="faq-a">Unlimited within the agreed brief at each stage (rough cut, animatic, color grade, render). You will never be billed extra for refining lighting, timing, typography, or color balance.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span>Can you rush a project on short notice?</span><span>+</span></button>
+            <div class="faq-a">Yes. Our Hyperdrive speed tier (48-hour delivery) allocates dedicated compute nodes and senior artist overtime to finish urgent commercial trailer and event drops.</div>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="cyber-kicker">Deliverables &amp; Usage Rights</div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span>What file formats do I receive?</span><span>+</span></button>
+            <div class="faq-a">Uncompressed ProRes 4444 and H.265 for VFX &amp; Animation; 16-bit multi-channel EXRs and 4K/8K crops; 300+ DPI PNGs with transparent layers for digital character art and stickers; FBX/USD/Blend files if 3D source files are selected.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span>Do I own full commercial usage rights?</span><span>+</span></button>
+            <div class="faq-a">Yes. All commercial deliverables come with written worldwide commercial buyout rights so you can broadcast, stream, print, or monetize without royalties.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__wordmark">NOCTURNEART</div>
+      <div class="footer__bottom">
+        <div>© 2026 NocturneArt. All rights reserved.</div>
+        <div style="display:flex; gap:1.5rem">
+          <a href="index.html" style="color:var(--text-dim); text-decoration:none">Home</a>
+          <a href="portfolio.html" style="color:var(--text-dim); text-decoration:none">Portfolio</a>
+          <a href="quote.html" style="color:var(--text-dim); text-decoration:none">Quote</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/futuristic.js"></script>
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('is-open');
+      });
+    });
+  </script>
+</body>
+</html>
+
